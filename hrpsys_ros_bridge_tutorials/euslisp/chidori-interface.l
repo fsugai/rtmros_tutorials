@@ -12,7 +12,7 @@
    (prog1
        (send-super* :init :robot chidori-robot :controller-timeout ct args)
       ;; add controller
-      (dolist (limb '(:rleg :lleg))
+      (dolist (limb '(:rleg :lleg :torso))
         (send self :def-limb-controller-method limb)
         (send self :add-controller (read-from-string (format nil "~A-controller" limb)) :joint-enable-check t :create-actions t)))
    )

@@ -36,7 +36,8 @@ class URATAHrpsysConfigurator(HrpsysConfigurator):
         elif self.ROBOT_NAME == "CHIDORI":
             rleg_group = ['rleg', ['RLEG_JOINT0', 'RLEG_JOINT1', 'RLEG_JOINT2', 'RLEG_JOINT3', 'RLEG_JOINT4', 'RLEG_JOINT5']]
             lleg_group = ['lleg', ['LLEG_JOINT0', 'LLEG_JOINT1', 'LLEG_JOINT2', 'LLEG_JOINT3', 'LLEG_JOINT4', 'LLEG_JOINT5']]
-            self.Groups = [rleg_group, lleg_group]
+            torso_group = ['torso', ['CMG_JOINT0', 'CMG_JOINT1', 'CMG_JOINT2']]
+            self.Groups = [rleg_group, lleg_group, torso_group]
         elif self.ROBOT_NAME == "TQLEG0":
             rleg_group = ['rleg', ['RLEG_JOINT0', 'RLEG_JOINT1', 'RLEG_JOINT2', 'RLEG_JOINT3', 'RLEG_JOINT4', 'RLEG_JOINT5']]
             lleg_group = ['lleg', ['LLEG_JOINT0', 'LLEG_JOINT1', 'LLEG_JOINT2', 'LLEG_JOINT3', 'LLEG_JOINT4', 'LLEG_JOINT5']]
@@ -492,10 +493,10 @@ class URATAHrpsysConfigurator(HrpsysConfigurator):
         return [1.39626, 1.5708, 0.698132, 1.74533, -0.261799, 0.0, 0.0, -0.785398, -1.39626, -1.5708, 0.698132, -1.39626, 0.261799, 0.0, 0.0, -0.785398, 0.0, 0.0, -0.174533, 0.698132, -0.349066, 0.0, 0.0, 0.0, -0.174533, 0.698132, -0.349066, 0.0, 0.0, -0.087266, 0.872665, 0.0]
 
     def chidoriResetPose (self):
-        return [0.0,0.0,-0.349066,0.698132,-0.349066,0.0,0.0,0.0,-0.349066,0.698132,-0.349066,0.0]
+        return [0.0,0.0,-0.349066,0.698132,-0.349066,0.0,0.0,0.0,-0.349066,0.698132,-0.349066,0.0,0.0,0.0,0.0]
 
     def chidoriInitPose (self):
-        return [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+        return [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
     def tqleg0ResetPose(self):
         return [0.0, 0.0, -0.733038, 1.25664, -0.523599, 0.0, 0.0, 0.0, -0.733038, 1.25664, -0.523599, 0.0]
@@ -509,7 +510,7 @@ class URATAHrpsysConfigurator(HrpsysConfigurator):
 
     # handmade
     def chidoriResetLandingPose (self):
-        return [0.0,0.0,-0.698132,1.39626,-0.698132,0.0,0.0,0.0,-0.698132,1.39626,-0.698132,0.0]
+        return [0.0,0.0,-0.698132,1.39626,-0.698132,0.0,0.0,0.0,-0.698132,1.39626,-0.698132,0.0,0.0,0.0,0.0]
 
     def setResetPose(self):
         if self.ROBOT_NAME == "STARO":

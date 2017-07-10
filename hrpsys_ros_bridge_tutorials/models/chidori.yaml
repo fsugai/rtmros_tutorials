@@ -16,6 +16,10 @@ lleg:
   - LLEG_JOINT3   : lleg-knee-p
   - LLEG_JOINT4   : lleg-ankle-p
   - LLEG_JOINT5   : lleg-ankle-r
+torso:
+  - CMG_JOINT0   : cmg-r
+  - CMG_JOINT1   : cmg-p
+  - CMG_JOINT2   : cmg-y
 
 ##
 ## end-coords
@@ -32,7 +36,8 @@ lleg-end-coords:
 ##
 angle-vector:
   reset-pose : [0.0, 0, -20, 40, -20, 0,
-                0.0, 0, -20, 40, -20, 0]
+                0.0, 0, -20, 40, -20, 0,
+                0, 0, 0]
 
 ##
 ## sensors
