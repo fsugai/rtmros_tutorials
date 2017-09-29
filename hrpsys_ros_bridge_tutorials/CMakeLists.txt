@@ -389,6 +389,23 @@ compile_rbrain_model_for_closed_robots(CHIDORI CHIDORI CHIDORI
   --conf-file-option "seq_optional_data_dim: 4"
   )
 
+# KHR
+compile_rbrain_model_for_closed_robots(KHR KHR KHR
+  --robothardware-conf-file-option "pdgains.file_name: ${PROJECT_SOURCE_DIR}/models/PDgains.sav"
+  ## do not use KHR.conf for real robot
+  --conf-file-option "pdgains.file_name: ${PROJECT_SOURCE_DIR}/models/KHR.PDgains.sav"
+  --conf-file-option "pdgains_sim_file_name: ${PROJECT_SOURCE_DIR}/models/KHR.PDgains_sim.dat"
+  --conf-file-option "abc_leg_offset: 0.0, 0.1, 0.0"
+  --conf-file-option "end_effectors: rleg,RLEG_JOINT4,WAIST,0.0,0.0,-0.110,0.0,0.0,0.0,0.0, lleg,LLEG_JOINT4,WAIST,0.0,0.0,-0.110,0.0,0.0,0.0,0.0,"
+  --conf-dt-option "0.002"
+  --simulation-timestep-option "0.002"
+  --conf-file-option "collision_loop: 20"
+  --conf-file-option "collision_pair: WAIST:LLEG_JOINT2 WAIST:RLEG_JOINT2 LLEG_JOINT2:RLEG_JOINT2 LLEG_JOINT2:RLEG_JOINT3 LLEG_JOINT3:RLEG_JOINT2 LLEG_JOINT3:RLEG_JOINT3"
+  --conf-file-option "# SequencePlayer optional data (contactStates x 2 + controlSwingTime x 2 (2 is rfsensor, lfsensor)"
+  --conf-file-option "seq_optional_data_dim: 4"
+  )
+
+
 # TQLEG0
 compile_rbrain_model_for_closed_robots(TQLEG0 TQLEG0 TQLEG0
   --robothardware-conf-file-option "pdgains.file_name: ${PROJECT_SOURCE_DIR}/models/PDgains.sav"
@@ -443,6 +460,7 @@ endif()
 generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(URATALEG URATALEG "--use-robot-hrpsys-config")
 generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(YSTLEG YSTLEG "--use-robot-hrpsys-config")
 generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(CHIDORI CHIDORI "--use-robot-hrpsys-config")
+generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(KHR KHR "--use-robot-hrpsys-config")
 generate_default_launch_eusinterface_files_for_jsk_closed_rbrain_robots(TQLEG0 TQLEG0 "--use-robot-hrpsys-config")
 generate_default_launch_eusinterface_files(
   "$(find hrpsys_ros_bridge_tutorials)/models/TESTMDOFARM.wrl"
