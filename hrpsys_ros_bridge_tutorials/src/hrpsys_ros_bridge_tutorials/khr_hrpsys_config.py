@@ -53,6 +53,12 @@ class SampleRobotHrpsysConfigurator(HrpsysConfigurator):
         stp.k_brot_p=[0.0, 0.0]
         stp.k_brot_tc=[0.1, 0.1]
         self.st_svc.setParameter(stp)
+        ggp=self.abc_svc.getGaitGeneratorParam()[1]
+        ggp.leg_default_translate_pos[0][1] = -0.02
+        ggp.leg_default_translate_pos[1][1] = 0.02
+        ggp.stride_parameter[0] = 0.01
+        ggp.stride_parameter[1] = 0.01
+        self.abc_svc.setGaitGeneratorParam(ggp)
 
     def __init__(self, robotname=""):
         HrpsysConfigurator.__init__(self)
