@@ -67,6 +67,16 @@ angle-vector:
                         0, 0, 0
                         ]
 
+##
+## sensors
+##
+sensors:
+### sensor position should be confirmed
+  - {sensor_name: 'rfsensor', sensor_type: 'base_force6d', parent_link: 'RLEG_LINK4', translate: '0 0 0', rotate: '0 1 0 0'}
+  - {sensor_name: 'lfsensor', sensor_type: 'base_force6d', parent_link: 'LLEG_LINK4', translate: '0 0 0', rotate: '0 1 0 0'}
+  - {sensor_name: 'rhsensor', sensor_type: 'base_force6d', parent_link: 'RARM_LINK1', translate: '0 0 0', rotate: '0 1 0 0'}
+  - {sensor_name: 'lhsensor', sensor_type: 'base_force6d', parent_link: 'LARM_LINK1', translate: '0 0 0', rotate: '0 1 0 0'}
+
 # for gazebo simulation
 replace_xmls:
   - match_rule:
